@@ -77,4 +77,3 @@ export default function BooksApp() {
         </div>
     )
 }
-
