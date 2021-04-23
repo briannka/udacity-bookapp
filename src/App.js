@@ -63,7 +63,7 @@ export default function BooksApp() {
                 <div>
                     <ol className="books-grid">
                         {shelfNames.map(shelf =>
-                            <Shelf shelfName={shelf.title} onShelfUpdate={onShelfUpdate}
+                            <Shelf key={shelf.title} shelfName={shelf.title} onShelfUpdate={onShelfUpdate}
                                 books={listOfBooks.filter(book => book.shelf === shelf.id)} />)}
                     </ol>
                     <div className="open-search">
