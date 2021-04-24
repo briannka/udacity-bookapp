@@ -42,7 +42,7 @@ export default function BooksApp() {
     useEffect(() => {
         getAll()
             .then(data => setListOfBooks(data))
-    }, [listOfBooks.length])
+    }, [])
 
     if (listOfBooks.length <= 0) {
         return null

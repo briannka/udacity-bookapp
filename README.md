@@ -11,4 +11,5 @@ The backend API uses a fixed set of cached search results and is limited to a pa
 
 ## Run the project
 
+First install all dependencies with `yarn install` in your Terminal
 To run this project locally type `yarn start` in your Terminal
