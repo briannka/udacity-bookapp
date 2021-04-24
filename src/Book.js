@@ -15,10 +15,7 @@ export default function Book(bookProps) {
                     <div className="book-shelf-changer">
                         <select value={value} onChange={((e) => {
                             setValue(e.target.value);
-                            let updatedShelfName = (e.target.value === "currentlyReading") 
-                            ? "currentlyReading" : (e.target.value === "read")
-                            ? "read" : "wantToRead";
-                            onShelfUpdate(updatedShelfName, id);
+                            onShelfUpdate(value, id);
                         })} >
                             <option value="move" disabled>Move to...</option>
                             <option value="currentlyReading" >Currently Reading</option>

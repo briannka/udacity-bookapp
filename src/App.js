@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import './App.css'
-import Shelf from './BookShelves'
 import { Route, Link } from 'react-router-dom'
 import { getAll, update, search } from './BooksAPI'
+import './App.css'
+import Shelf from './BookShelves'
 
 
 
@@ -11,13 +11,22 @@ export default function BooksApp() {
     const [searchedBooks, setSearchedBooks] = useState('');
     const shelfNames = [{ id: 'currentlyReading', title: 'My Reads' }, { id: 'wantToRead', title: 'To Read' }, { id: 'read', title: 'Read' }];
 
-
     const searchForBooks = (query) => {
         console.log(query);
         search(query)
             .then(res => {
+                let resArray = [];
+                resArray.concat(res).filter(searchedBook => {
+                    listOfBooks.map(savedBook => {
+                        if(searchedBook.id === savedBook.id) {
+                            searchedBook.shelf = savedBook.shelf
+                        }
+                    })  
+                    return searchedBook.shelf
+                    
+                })
                 res.length > 0 ?
-                    setSearchedBooks(res) : <div>nothing</div>
+                    setSearchedBooks(res) : null
             })
             .catch((e) => {
                 console.log('Oopsies, there\'s been an error!', e)
